@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&family=Quicksand&display=swap');
+
+/* Fonts
+font-family: 'Quicksand', sans-serif;
+font-family: 'Questrial', sans-serif;
+*/
+
+/* Colors */
+$bg: rgba(240, 255, 240, 1);
+$heading-color: #005D4F;
+$font-color: #053329;
+$bg-high: rgba(245, 255, 215, 1);
+$bg-low: rgba(215, 255, 200, 1);
+$bg-border: rgba(205, 255, 205, 1);
+$card-light: #365936;
+$card-dark: #1D3329;
+$shadow: #0F1210;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Questrial', sans-serif;
+  color: $font-color;
+}
+
+title {
+  display: none;
+}
+
+body {
+  background-color: $bg;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+/* Smaller Screens */
+.shapes {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+#header {
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  min-width: 100vw;
+  padding: 0 0 1rem;
+  background-image: linear-gradient(to bottom, $bg-high, $bg);
+  z-index: 7;
+  border-bottom: 1px solid $bg-border;
+  box-shadow: 0 1px 8px $shadow;
+}
+
+.card-container {
+  display: none;
+}
+
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  color: $heading-color;
+}
+
+h2, h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2rem;
+  color: $heading-color;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.fab, .fas {
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+.fa-github, .fa-codepen, .fa-vuejs {
+  align-self: center;
+  justify-self: center;
+  font-size: 10rem;
+  opacity: .1;
+  position: absolute;
+}
+
+section {
+  width: 70%;
+  min-width: 280px;
+  min-height: 204px;
+  padding: 2rem;
+  margin: 2rem 3rem;
+  box-shadow: 1px 1px 8px $shadow;
+  border-radius: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+section:nth-of-type(odd) {
+  background-image: linear-gradient(to right, $bg-high, $bg-low);
+}
+
+section:nth-of-type(even){
+  text-align: right;
+  margin-left: auto;
+  background-image: linear-gradient(120deg, $bg-low, $bg-high);
+}
+
+/* Larger Screens */
+@media only screen and (min-width: 1225px) {
+  .shapes {
+    width: 75%;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  #header {
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0 1rem;
+    background-image: linear-gradient(to bottom, $bg-high, $bg);
+    z-index: 7;
+    border-bottom: 1px solid $bg-border;
+    box-shadow: 0 1px 8px $shadow;
+  }
+    
+  h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    color: $heading-color;
+  }
+  
+  h2, h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3rem;
+    color: $heading-color;
+  }
+  
+  p {
+    font-size: 2rem;
+  }
+  
+  .fab, .fas {
+    font-size: 1.5rem;
+    opacity: 0.5;
+  }
+  
+  .fa-github, .fa-codepen, .fa-vuejs {
+    align-self: center;
+    justify-self: center;
+    font-size: 10rem;
+    opacity: .1;
+    position: absolute;
+  }
+  
+  /* Stacking cards by class, adding a margin to show stack */
+  .one {
+    z-index: 6;
+  }
+  
+  .two {
+    z-index: 5;
+    margin-left: .5rem;
+  }
+  
+  .three {
+    z-index: 4;
+    margin-left: 1rem;
+  }
+  
+  .four {
+    z-index: 3;
+    margin-left: 1.5rem;
+  }
+  
+  .five {
+    z-index: 2;
+    margin-left: 2rem;
+  }
+  
+  .six {
+    z-index: 1;
+    margin-left: 2.5rem;
+  }
+  
+  .card-container {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1rem;
+    height: 15rem;
+    width: 20%;
+    &:hover {
+      width: 75%;
+      
+      /* Spreading the cards out */
+      .one {
+        margin-left: 5%;
+      }
+      .two {
+        margin-left: 15%;
+      }
+      .three {
+        margin-left: 25%;
+      }
+      .four {
+        margin-left: 35%;
+      }
+      .five {
+        margin-left: 45%;
+      }
+      .six {
+        margin-left: 55%;
+      }
+    }
+  }
+  
+  .card {
+    /* Styling for each card */
+    color: $heading-color;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    min-width: 10rem;
+    height: 13rem;
+    padding: 1rem;
+    background-image: linear-gradient(to bottom right, $bg-high, $bg-low);
+    border-radius: 1rem;
+    box-shadow: 1px 1px 8px gray;
+    
+    /* Layout of cards */
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    
+    /* Transitions */
+    transition-property: margin, transform, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    &:hover {
+      transform: translateY(-7px);
+      box-shadow: 2px 5px 8px gray;
+    }
+
+    .fa-github, .fa-codepen, .fa-vuejs, .fa-pencil-ruler, .fa-project-diagram {
+      justify-self: center;
+      align-self: center;
+      font-size: 5rem;
+      opacity: .1;
+      position: absolute;
+      transform: translateY(-3rem);
+    }
+  }
+
+  li {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  section {
+    width: 70%;
+    min-width: 280px;
+    padding: 2rem;
+    margin: 2rem 3rem;
+    box-shadow: 1px 1px 8px $shadow;
+    border-radius: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  
+  section:nth-of-type(odd) {
+    background-image: linear-gradient(to right, $bg-high, $bg-low);
+  }
+  
+  section:nth-of-type(even){
+    text-align: right;
+    margin-left: auto;
+    background-image: linear-gradient(120deg, $bg-low, $bg-high);
+  }
+}
